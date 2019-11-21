@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :newsbee, Newsbee.Repo,
   username: "newsbee",
-  password: "8r5QFSKfYgrsaeX4",
+  password: "newsbeepwd",
   database: "newsbee_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

@@ -9,13 +9,52 @@
   </head>
   <body>
     <div class="container">
-      <div>
-        <%= if get_flash(@conn, :info) do %>
-          <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-        <% end %>
-        <%= if get_flash(@conn, :error) do %>
-          <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-        <% end %>
+
+	    <nav class="navbar navbar-expand-sm navbar-light bg-white">
+        <div class="col-4">
+	  <span class="navbar-brand">Newsbee</span>
+        </div>
+        <div class="col-4">
+	<%= if @current_user do %>
+          
+            <%= link("NewNewsbee", to: Routes.user_path(@conn, :new)) %>
+          
+	<% end %>
+        </div>
+        <div class="col-4 text-light">
+          <%= if @current_user do %>
+	  User: <%= link(@current_user.name,
+              to: Routes.user_path(@conn, :show, @current_user)) %>
+            (<%= link("Logout", to: Routes.session_path(@conn, :delete),
+              method: :delete) %>)
+          <% else %>
+            <%= link("Login", to: Routes.session_path(@conn, :new)) %> |
+	    <%= link("Register", to: Routes.user_path(@conn, :new)) %>
+          <% end %>
+        </div>
+      </nav>
+
+      <div class="row">
+        <div class="col-12">
+          <%= if get_flash(@conn, :info) do %>
+            <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+          <% end %>
+          <%= if get_flash(@conn, :error) do %>
+            <p class="alert alert-danger" role="alert">
+              <%= get_flash(@conn, :error) %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
         <%= render @view_module, @view_template, assigns %>
       </div>
     </div>

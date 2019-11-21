@@ -1,3 +1,5 @@
-<div id="root">
-  React app loading...
+<div class="row">
+  <div class="col-12">
+    <h1>Welcome to NewsBee</h1>
+  </div>
 </div>

@@ -7,6 +7,7 @@ defmodule NewsbeeWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug NewsbeeWeb.Plugs.FetchCurrentUser
   end
 
   pipeline :api do
@@ -24,6 +25,17 @@ defmodule NewsbeeWeb.Router do
     get "topics/:id/edit", TopicController, :edit
     delete "topics/:id/delete", TopicController, :delete
     put "topics/:id/update", TopicController, :update
+
+
+    get "/", PageController, :index
+    resources "/sheets",SheetController,
+       only: [:new, :create, :index, :show, :update, :edit] 
+    resources "/users", UserController,
+       only: [:new, :create, :show, :index]
+    resources "/tasks", TaskController,
+	only: [:new, :create]
+    resources "/sessions", SessionController, 
+      only: [:new, :create, :delete], singleton: true
   end
 
   # Other scopes may use custom stacks.

@@ -9,3 +9,12 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Newsbee.Repo
+alias Newsbee.Users.User
+
+pw = Argon2.hash_pwd_salt("123456")
+
+
+Repo.insert!(%User{name: "Alice", email: "alice@", password_hash: pw})
+Repo.insert!(%User{name: "Bob", email: "bob@", password_hash: pw})
