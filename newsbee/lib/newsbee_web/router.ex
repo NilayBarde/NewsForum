@@ -23,6 +23,7 @@ defmodule NewsbeeWeb.Router do
     get "topics/:id/show", TopicController, :show
     get "topics/:id/edit", TopicController, :edit
     delete "topics/:id/delete", TopicController, :delete
+    put "topics/:id/update", TopicController, :update
   end
 
   # Other scopes may use custom stacks.
