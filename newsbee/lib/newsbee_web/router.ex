@@ -16,8 +16,13 @@ defmodule NewsbeeWeb.Router do
   scope "/", NewsbeeWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", TopicController, :index
     get "/users", PageController, :index
+    get "/topics/new", TopicController, :new
+    post "/topics", TopicController, :create
+    get "topics/:id/show", TopicController, :show
+    get "topics/:id/edit", TopicController, :edit
+    delete "topics/:id/delete", TopicController, :delete
   end
 
   # Other scopes may use custom stacks.
