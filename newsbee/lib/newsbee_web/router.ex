@@ -1,8 +1,10 @@
 defmodule NewsbeeWeb.Router do
   use NewsbeeWeb, :router
 
+
 # pipeline: some preprocessing on the request
   pipeline :browser do
+
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -10,8 +12,19 @@ defmodule NewsbeeWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
+  pipeline :ajax do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
+  scope "/ajax", NewsbeeWeb do
+    pipe_through :ajax
+
+    resources "/users", UserController
+    resources "/sessions", SessionController, only: [:create], singleton: true
+
   end
 
   scope "/", NewsbeeWeb do
@@ -27,6 +40,7 @@ defmodule NewsbeeWeb.Router do
     # put "topics/:id/update", TopicController, :update
 
     resources "/", TopicController
+    get "/*path", PageController, :index
   end
 
 
