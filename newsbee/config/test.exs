@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :newsbee, Newsbee.Repo,
   username: "newsbee",
-  password: "newsbeepwd",
+  password: "8r5QFSKfYgrsaeX4",
   database: "newsbee_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
