@@ -1,5 +1,6 @@
 defmodule NewsbeeWeb.Router do
   use NewsbeeWeb, :router
+  import Plug.Conn
 
 
 # pipeline: some preprocessing on the request
@@ -10,6 +11,7 @@ defmodule NewsbeeWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug NewsbeeWeb.Plugs.SetUser
   end
 
   pipeline :ajax do
@@ -30,17 +32,18 @@ defmodule NewsbeeWeb.Router do
   scope "/", NewsbeeWeb do
     pipe_through :browser
 
-    # get "/", TopicController, :index
-    # get "/users", PageController, :index
-    # get "/topics/new", TopicController, :new
-    # post "/topics", TopicController, :create
-    # get "topics/:id/show", TopicController, :show
-    # get "topics/:id/edit", TopicController, :edit
-    # delete "topics/:id/delete", TopicController, :delete
-    # put "topics/:id/update", TopicController, :update
+    get "/", TopicController, :index
+    get "/users", PageController, :index
+    get "/topics/new", TopicController, :new
+    post "/topics", TopicController, :create
+    get "topics/:id/show", TopicController, :show
+    get "topics/:id/edit", TopicController, :edit
+    delete "topics/:id/delete", TopicController, :delete
+    put "topics/:id/update", TopicController, :update
 
-    resources "/", TopicController
-    get "/*path", PageController, :index
+    # resources "/", TopicController
+    # get "/*path", PageController, :index
+    get "/login", PageController, :index
   end
 
 
