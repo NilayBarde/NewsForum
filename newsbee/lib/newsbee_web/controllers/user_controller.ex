@@ -1,8 +1,6 @@
 defmodule NewsbeeWeb.UserController do
   use NewsbeeWeb, :controller
 
-  plug NewsbeeWeb.Plugs.RequireAuth when action in [:show, :delete]
-
   alias Newsbee.Users
   alias Newsbee.Users.User
 
