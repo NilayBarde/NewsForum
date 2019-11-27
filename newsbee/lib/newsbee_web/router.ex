@@ -11,7 +11,7 @@ defmodule NewsbeeWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug NewsbeeWeb.Plugs.SetUser
+
   end
 
   pipeline :ajax do
@@ -30,7 +30,7 @@ defmodule NewsbeeWeb.Router do
   end
 
   scope "/", NewsbeeWeb do
-    pipe_through :browser
+    pipe_through :ajax
 
     get "/", TopicController, :index
     get "/users", PageController, :index

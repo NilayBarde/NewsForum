@@ -3,6 +3,7 @@ defmodule Newsbee.Topics do
   The Topics context.
   """
 
+  import Ecto
   import Ecto.Query, warn: false
   alias Newsbee.Repo
 
@@ -49,8 +50,9 @@ defmodule Newsbee.Topics do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_topic(attrs \\ %{}) do
-    %Topic{}
+  def create_topic(conn, attrs \\ %{}) do
+    conn.assigns.user
+    |> build_assoc(:topics)
     |> Topic.changeset(attrs)
     |> Repo.insert()
   end

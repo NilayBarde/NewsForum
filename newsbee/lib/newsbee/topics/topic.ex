@@ -4,6 +4,7 @@ defmodule Newsbee.Topics.Topic do
 
   schema "topics" do
     field :title, :string
+    belongs_to :user, Newsbee.Users.User
 
     timestamps()
   end

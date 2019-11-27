@@ -23,6 +23,6 @@ defmodule NewsbeeWeb.Plugs.SetUser do
                 assign(conn, :user, nil)
         end
 
-
+        
     end
 end

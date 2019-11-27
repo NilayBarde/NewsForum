@@ -6,6 +6,7 @@ defmodule Newsbee.Users.User do
     field :email, :string
     field :name, :string
     field :password_hash, :string
+    has_many :topics, Newsbee.Topics.Topic
 
     field :password, :string, virtual: true
     timestamps()
