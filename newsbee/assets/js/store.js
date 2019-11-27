@@ -10,9 +10,19 @@ function login(st0 = {email: "", password: "", errors: null}, action) {
     }
 }
 
+function new_user(st0 = {email: "", name: "",  password: "", errors: null}, action) {
+    switch(action.type) {
+        case 'CHANGE_NEW_USER':
+            return Object.assign({}, st0, action.data)
+        default:
+            return st0
+    }
+}
+
 function forms(st0, action) {
     let reducer = combineReducers({
-        login
+        login,
+	new_user
     })
     return reducer(st0, action)
 }
