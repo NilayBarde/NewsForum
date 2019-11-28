@@ -31,6 +31,7 @@ let session0 = localStorage.getItem('session')
 if(session0) {
     session0 = JSON.parse(session0)
 }
+
 function session(st0 = session0, action) {
     switch(action.type) {
         case 'LOG_IN':

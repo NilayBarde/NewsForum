@@ -32,10 +32,12 @@ let Session = connect(({ session }) => ({ session }))(({ session, dispatch }) =>
     if(session) {
         return (
             <Nav className="ml-auto">
-                <Nav.Item>
-                    <NavLink to="/" activeClassName="active" exact className="nav-link"
-                        onClick={logout}>Logout</NavLink>
-                </Nav.Item>
+          <Nav.Item>
+          <p className="text-light py-2">User: {session.user_name}</p>
+        </Nav.Item>
+        <Nav.Item>
+          <a className="nav-link" href="#" onClick={logout}>Logout</a>
+        </Nav.Item>
             </Nav>
         )
     } else {

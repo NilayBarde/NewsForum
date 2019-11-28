@@ -32,25 +32,40 @@ export function remove(path) {
 }
 
 export function get(path) {
+  return fetch('/ajax' + path, {
+    method: 'get',
+    credentials: 'same-origin',
+    headers: new Headers({
+      'x-csrf-token': window.csrf_token,
+      'content-type': "application/json; charset=UTF-8",
+      'accept': 'application/json',
+    }),
+  }).then((resp) => resp.json());
+}
+
+export function update(path, body) {
   let state = store.getState()
   let session = state.session
-    return fetch('/ajax' + path, {
-        method: 'get',
-        credentials: 'same-origin',
-        headers: new Headers({
-          'x-csrf-token': window.csrf_token,
-          'content-type': "application/json; charset=UTF-8",
-          'accept': 'application/json',
-          'x-auth': session ? session.token : "",
-        })
-    }).then(resp => resp.json())
+  return fetch('/ajax' + path, {
+      method: 'put',
+      credentials: 'same-origin',
+      headers: new Headers({
+        'x-csrf-token': window.csrf_token,
+        'content-type': "application/json; charset=UTF-8",
+        'accept': 'application/json',
+        'x-auth': session ? session.token : "",
+      }),
+      body: JSON.stringify(body),
+  }).then(resp => resp.json())
 }
 
 export function submit_login(form) {
   let state = store.getState()
   let data = state.forms.login
 
-  post('/sessions', data).then(resp => {
+  post('/sessions', data)
+    .then(resp => {
+    console.log(resp)
     if(resp.token) {
       localStorage.setItem('session', JSON.stringify(resp))
       store.dispatch({

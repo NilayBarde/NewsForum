@@ -29,6 +29,7 @@ defmodule NewsbeeWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
+    IO.inspect(conn.assigns)
     user = Users.get_user!(id)
     render(conn, "show.json", user: user)
   end
