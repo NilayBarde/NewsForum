@@ -3,12 +3,11 @@ import ReactDom from 'react-dom'
 import {BrowserRouter as Router, Switch, Route, NavLink, Link} from 'react-router-dom'
 import { Provider, connect } from 'react-redux';
 
-//Components and function
 import Navigation from './navbar'
-import {getManager} from './ajax'
 import Login from './login'
 
 import store from './store'
+import NewUser from './user/new'
 
 export default function init(root) {
     let tree = (
@@ -28,7 +27,7 @@ function Index(props) {
                     <Login />
                 </Route>
                 <Route exact path="/register">
-                    Register
+                    <NewUser />
                 </Route>
             </Switch>
         </Router>

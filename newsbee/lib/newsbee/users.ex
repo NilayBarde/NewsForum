@@ -109,4 +109,14 @@ defmodule Newsbee.Users do
       _else       -> nil
     end
   end
+
+def get_user_by_email(email) do
+    users = Repo.all from u in User,
+                where: u.email == ^email
+    if length(users) >0 do
+      true
+    else
+      false
+    end
+  end
 end
