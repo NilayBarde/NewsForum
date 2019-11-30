@@ -8,6 +8,8 @@ import Login from './login'
 
 import store from './store'
 import NewUser from './user/new'
+// import news_api from './news'
+import {news} from './news'
 
 export default function init(root) {
     let tree = (

@@ -17,6 +17,8 @@ import "phoenix_html"
 import "./socket"
 
 import init_page from './index';
+//import news from './news'
+
 
 window.addEventListener("load", () => {
   let root = document.getElementById('root');
