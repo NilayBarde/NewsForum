@@ -2,7 +2,7 @@ defmodule NewsbeeWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", NewsbeeWeb.RoomChannel
+  channel "comments:*", NewsbeeWeb.CommentsChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
