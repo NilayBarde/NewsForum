@@ -12,6 +12,7 @@
 <%= for topic <- @topics do %>
     <tr>
       <td><%= topic.title %></td>
+      
 
       <td>
         <span><%= link "Show", to: Routes.topic_path(@conn, :show, topic) %></span>
@@ -20,6 +21,15 @@
       </td>
     </tr>
 <% end %>
+
+<%= articles = Newsbee.get_urlToImage()%>
+<%= for article <- articles do %>
+  <tr>
+    <img class="pet-photo" src=article alt="Not Found" onerror=this.src="https://scontent.fbed1-1.fna.fbcdn.net/v/t1.0-9/20953044_1461745670527406_132831486733253753_n.jpg?_nc_cat=100&_nc_ohc=AmfdCTYo4GMAQlfdng1biYZCV-M8Txe9Y5MMLTKh2JqW0fdJY5lwG-bWA&_nc_ht=scontent.fbed1-1.fna&oh=819e8da11384295e553616730d38857d&oe=5E8A64FD">
+    
+  </tr>
+<% end %>
+
   </tbody>
 </table>
 
