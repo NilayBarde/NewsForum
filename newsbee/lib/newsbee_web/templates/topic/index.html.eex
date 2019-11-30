@@ -22,17 +22,16 @@
     </tr>
 <% end %>
 
-<%# <%= authors = Newsbee.get_author()%> %>
+<%# <%= authors = Newsbee.get_author()%>
 
-<%= articles = Newsbee.get_urlToImage()%>
+<%# <%= articles = Newsbee.get_author()%>
 
-<%= for article <- articles  do %>
+<%= for article <- Newsbee.get_author() do %>
 
   <tr>
     <td>
-    <%# <%= author%> %>
-    <img src=article>
-    <%# <img class="pet-photo" src=urlToImage alt="Not Found" onerror=this.src="https://scontent.fbed1-1.fna.fbcdn.net/v/t1.0-9/20953044_1461745670527406_132831486733253753_n.jpg?_nc_cat=100&_nc_ohc=AmfdCTYo4GMAQlfdng1biYZCV-M8Txe9Y5MMLTKh2JqW0fdJY5lwG-bWA&_nc_ht=scontent.fbed1-1.fna&oh=819e8da11384295e553616730d38857d&oe=5E8A64FD"> %>
+    <%= article %>
+    
     </td>
   </tr>
 <% end %>

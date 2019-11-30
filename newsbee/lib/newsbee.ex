@@ -36,8 +36,25 @@ defmodule Newsbee do
 
   def get_author() do
 
+author_list = []
+ articles = 
  Enum.map(get_articles, fn (x) -> x["author"] end)  
-end 
+#  |> Enum.each(fn (x) -> "anonymous" = nil end)
+for article <- articles do
+  if article === nil do
+    Enum.concat(author_list, ["anonymous"])
+  
+  else
+    Enum.concat(author_list, [article])
+  end
+end
+  end
+
+  def get_author2() do
+    Enum.map(get_articles, fn (x) -> x["author"] end)
+  end
+
+ 
 
   def get_title() do
 
