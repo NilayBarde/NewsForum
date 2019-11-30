@@ -103,3 +103,33 @@ export function add_user(form) {
     }
   })
 }
+
+export function get_topics() {
+  get('/topics').then(resp => {
+    console.log(resp.data)
+    store.dispatch({
+      type: 'GET_TOPICS',
+      data: resp.data
+    })
+  })
+}
+
+export function add_topic(form) {
+  let state = store.getState()
+  let data = state.forms.new_topic
+  post('/topics', {topic: data}).then(resp => {
+    console.log(resp.data)
+    if(resp.data) { 
+      store.dispatch({
+        type: 'NEW_TOPIC',
+        data: resp.data
+      })
+      form.redirect('/topics')
+    } else {
+      store.dispatch({
+        type: 'CHANGE_NEW_TOPIC',
+        data: {errors: JSON.stringify(resp.errors)},
+      });
+    }
+  })
+}

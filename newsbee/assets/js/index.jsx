@@ -5,7 +5,8 @@ import { Provider, connect } from 'react-redux';
 
 import Navigation from './navbar'
 import Login from './login'
-
+import TopicsDashboard from './topics/topics'
+import NewTopic from './topics/new'
 import store from './store'
 import NewUser from './user/new'
 
@@ -29,6 +30,12 @@ function Index(props) {
                 <Route exact path="/register">
                     <NewUser />
                 </Route>
+	        <Route exact path="/new_topic">
+	            <NewTopic />
+	        </Route>
+	        <Route exact path="/topics">
+	            <TopicsDashboard />
+	        </Route>
             </Switch>
         </Router>
     )

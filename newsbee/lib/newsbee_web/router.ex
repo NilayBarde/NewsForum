@@ -21,6 +21,7 @@ pipeline :browser do
 
     resources "/users", UserController
     resources "/sessions", SessionController, only: [:create], singleton: true
+    resources "/topics", TopicController, except: [:new, :edit]
 
   end
 
