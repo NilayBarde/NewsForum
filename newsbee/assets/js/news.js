@@ -69,5 +69,39 @@ function ifcontentnull(content){
 
 
 
+
+
+
+function placedata(){
+   let titles = title;
+   let authors = author;
+   let descriptions = description;
+   let urls = url;
+   let urlToImages = urlToImage;
+    let output = '<h1 class="h2title"> Newsbee Daily Feeds</h1>';
+    for(let i = 0; i< titles.length; i++){
+
+
+      output += `
+        <ul class="animal">
+        <img class="pet-photo" src="${urlToImages[i]}" alt="Not Found" onerror=this.src="https://scontent.fbed1-1.fna.fbcdn.net/v/t1.0-9/20953044_1461745670527406_132831486733253753_n.jpg?_nc_cat=100&_nc_ohc=AmfdCTYo4GMAQlfdng1biYZCV-M8Txe9Y5MMLTKh2JqW0fdJY5lwG-bWA&_nc_ht=scontent.fbed1-1.fna&oh=819e8da11384295e553616730d38857d&oe=5E8A64FD">
+        <a class = "title_color" href= ${urls[i]} target="_blank" ><h3> ${titles[i]}</h3></a>
+           <div><i><small>${ifauthornull(authors[i])}</small></i></div>
+
+         <br>
+          <div class="list-group-item"> ${ifcontentnull(descriptions[i])}</div>
+        </ul>
+      `;
+    }
+
+    console.log(output);
+    // return output;
+
+     document.getElementById('news').innerHTML = `${output}
+     <p class="footer">scroll up for more news!</p>;
+     `
+
+  }
+
 getTitle();
 

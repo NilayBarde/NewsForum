@@ -46,6 +46,10 @@ defmodule Newsbee.MixProject do
       {:ueberauth, "~> 0.6"},
       {:ueberauth_github, "~> 0.7"},
       {:argon2_elixir, "~> 2.0"}
+      {:argon2_elixir, "~> 2.0"},
+      {:httpoison, "~> 1.6"},
+      {:distillery, "~> 2.0"},
+      {:poison, "~> 3.1"}
     ]
   end
 
