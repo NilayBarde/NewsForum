@@ -35,11 +35,12 @@ class NewTopic extends React.Component {
         if(this.state.redirect)
             return <Redirect to={this.state.redirect} />
 
-        let {title, errors} = this.props
+        let {title, errors, user_id} = this.props
         let error_msg = null
         if(errors) {
             error_msg = <Alert variant="danger">{ errors }</Alert>
         }
+	this.changed({ user_id: store.getState().session.user_id })
         return(
             <Container>
                 <h1 align="center">New Topic</h1>

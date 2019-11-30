@@ -117,6 +117,7 @@ export function get_topics() {
 export function add_topic(form) {
   let state = store.getState()
   let data = state.forms.new_topic
+  console.log(data)
   post('/topics', {topic: data}).then(resp => {
     console.log(resp.data)
     if(resp.data) { 
