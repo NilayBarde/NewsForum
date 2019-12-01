@@ -41,7 +41,7 @@ author_list = []
  Enum.map(get_articles, fn (x) -> x["author"] end)  
 #  |> Enum.each(fn (x) -> "anonymous" = nil end)
 for article <- articles do
-  if article === nil do
+  if article === nil || article === "" do
     Enum.concat(author_list, ["anonymous"])
   
   else
@@ -49,6 +49,22 @@ for article <- articles do
   end
 end
   end
+
+
+
+  def get_author1(article) do
+
+
+   
+#  |> Enum.each(fn (x) -> "anonymous" = nil end)
+
+  if article === nil || article === "" do
+    "anonymous"
+  
+  else
+    Map.get(article, "author")
+  end
+end
 
   def get_author2() do
     Enum.map(get_articles, fn (x) -> x["author"] end)
