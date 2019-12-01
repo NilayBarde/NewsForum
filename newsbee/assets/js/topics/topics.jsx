@@ -3,6 +3,7 @@ import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import { get_topics } from '../ajax'
+import { delete_topic } from '../ajax'
 import store from '../store'
 
 const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
@@ -14,6 +15,10 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
             <tr key={key}>
                 <td>{topic.title}</td>
 		<td>{topic.user.name}</td>
+		{
+		store.getState().session.user_id == topic.user.id ?
+                 <td><button className="btn btn-danger" onClick={() => delete_topic(topic.id)}>Delete</button></td>:null
+		}
             </tr>
         )
     })

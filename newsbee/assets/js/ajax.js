@@ -75,7 +75,7 @@ export function submit_login(form) {
         type: 'LOG_IN',
         data: resp
       })
-      form.redirect('/jobs')
+      form.redirect('/topics')
     } else {
       store.dispatch({
         type: 'CHANGE_LOGIN',
@@ -133,6 +133,15 @@ export function add_topic(form) {
         data: {errors: JSON.stringify(resp.errors)},
       });
     }
+  })
+}
+
+export function delete_topic(id) {
+  remove('/topics/' + id).then(resp => {
+    store.dispatch({
+      type: 'DELETE_TOPIC',
+      data: id
+    })
   })
 }
 
