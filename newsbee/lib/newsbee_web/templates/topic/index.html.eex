@@ -26,11 +26,54 @@
 
 <%# <%= articles = Newsbee.get_author()%>
 
-<%= for article <- Newsbee.get_author() do %>
+<%= for author <- Newsbee.get_author() do %>
 
   <tr>
     <td>
-    <%= article %>
+    <%= author %>
+    
+    </td>
+  </tr>
+<% end %>
+
+
+<%= for title <- Newsbee.get_title() do %>
+
+  <tr>
+    <td>
+    <%= title %>
+    
+    </td>
+  </tr>
+<% end %>
+
+<%= for desc <- Newsbee.get_description() do %>
+
+  <tr>
+    <td>
+    <%= desc %>
+    
+    </td>
+  </tr>
+<% end %>
+
+
+<%= for url <- Newsbee.get_url() do %>
+
+  <tr>
+    <td>
+    <%= url %>
+    
+    </td>
+  </tr>
+<% end %>
+
+
+<%= for urlToImage <- Newsbee.get_urlToImage() do %>
+
+  <tr>
+    <td>
+    <img class="pet-photo" src=<%= urlToImage %> alt="Not Found" onerror=this.src="https://scontent.fbed1-1.fna.fbcdn.net/v/t1.0-9/20953044_1461745670527406_132831486733253753_n.jpg?_nc_cat=100&_nc_ohc=AmfdCTYo4GMAQlfdng1biYZCV-M8Txe9Y5MMLTKh2JqW0fdJY5lwG-bWA&_nc_ht=scontent.fbed1-1.fna&oh=819e8da11384295e553616730d38857d&oe=5E8A64FD">
     
     </td>
   </tr>
@@ -40,3 +83,4 @@
 </table>
 
 <span><%= link "New Topic", to: Routes.topic_path(@conn, :new) %></span>
+
