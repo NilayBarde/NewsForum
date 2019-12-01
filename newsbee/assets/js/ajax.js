@@ -154,5 +154,40 @@ export function delete_topic(id) {
   })
 }
 
+export function add_comment(form) {
+  let state = store.getState()
+  let data = state.forms.new_comment
+  post('/comments', {comment: data}).then(resp => {
+    if(resp.data) {
+      store.dispatch({
+        type: 'CHANGE_NEW_COMMENT',
+        data: resp.data.id
+      })
+    } else {
+      store.dispatch({
+        type: 'CHANGE_NEW_COMMENT',
+        data: {errors: JSON.stringify(resp.errors)},
+      });
+    }
+  })
+}
 
+export function get_comments(topic_id) {
+  get('/topics/' + topic_id).then(resp => {
+    if(resp.data) {
+      store.dispatch({
+        type: 'GET_TOPICS',
+        data: resp.data.topics
+      })
+    }
+  })
+}
 
+export function get_comment(comment_id) {
+  get('/comments/' + comment_id).then(resp => {
+    store.dispatch({
+      type: 'SHOW_COMMENT',
+      data: resp.data
+    })
+  })
+}

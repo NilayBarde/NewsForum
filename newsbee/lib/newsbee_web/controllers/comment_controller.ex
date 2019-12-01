@@ -22,7 +22,7 @@ defmodule NewsbeeWeb.CommentController do
 
   def show(conn, %{"id" => id}) do
     comment = Comments.get_comment!(id)
-    render(conn, "show.json", comment: comment)
+    render(conn, "comments.json", comment: comment)
   end
 
   def update(conn, %{"id" => id, "comment" => comment_params}) do

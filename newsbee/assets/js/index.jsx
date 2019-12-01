@@ -8,9 +8,9 @@ import Login from './login'
 
 import TopicsDashboard from './topics/topics'
 import NewTopic from './topics/new'
+import NewComment from './comments/new'
 import ShowTopic from './topics/show'
 import store from './store'
-
 import NewUser from './user/new'
 
 export default function init(root) {
@@ -36,11 +36,15 @@ function Index(props) {
 	        <Route exact path="/new_topic">
 	            <NewTopic />
 	        </Route>
+	        <Route exact path="/new_comment">
+	            <NewComment />
+	        </Route>
 	        <Route exact path="/topics/">
 	            <TopicsDashboard />
 	        </Route>
 	        <Route path="/show_topic/:id" component={ShowTopic}>
                 </Route>
+
             </Switch>
         </Router>
     )

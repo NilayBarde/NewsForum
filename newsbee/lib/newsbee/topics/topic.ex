@@ -5,6 +5,7 @@ defmodule Newsbee.Topics.Topic do
   schema "topics" do
     field :title, :string
     belongs_to :user, Newsbee.Users.User
+    has_many :timesheets, Newsbee.Comments.Comment
 
     timestamps()
   end
