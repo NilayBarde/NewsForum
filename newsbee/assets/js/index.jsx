@@ -33,7 +33,7 @@ function Index(props) {
 	        <Route exact path="/new_topic">
 	            <NewTopic />
 	        </Route>
-	        <Route exact path="/topics">
+	        <Route exact path="/topics/">
 	            <TopicsDashboard />
 	        </Route>
             </Switch>

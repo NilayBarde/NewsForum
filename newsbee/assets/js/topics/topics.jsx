@@ -6,7 +6,6 @@ import { get_topics } from '../ajax'
 import store from '../store'
 
 const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
-    console.log(topics.size)
     if(topics.size == 0)
         get_topics()
 
@@ -14,21 +13,19 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
         return(
             <tr key={key}>
                 <td>{topic.title}</td>
+		<td>{topic.user.name}</td>
             </tr>
         )
     })
     return (
         <div className="container">
             <h1>Topics</h1>
-            {
-                store.getState().session != null ?
-                <NavLink className="btn btn-primary ml-auto d-block add-btn" to="/new_topic">Add Topic</NavLink> :
-                null
-            }
+            <NavLink className="btn btn-primary ml-auto d-block add-btn" to="/new_topic">Create Topic</NavLink>
             <table className="table">
                 <thead>
                     <tr>
-                        <td>Topic</td>
+                        <td>Title</td>
+	                <td>User</td>
                     </tr>
                 </thead>
                 <tbody>

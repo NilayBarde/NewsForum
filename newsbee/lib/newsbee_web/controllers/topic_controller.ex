@@ -1,6 +1,7 @@
 defmodule NewsbeeWeb.TopicController do
   use NewsbeeWeb, :controller
 
+  plug NewsbeeWeb.Plugs.RequireAuth when action in [:show, :create, :delete]
   alias Newsbee.Topics
   alias Newsbee.Topics.Topic
 

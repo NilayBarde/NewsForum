@@ -1,6 +1,7 @@
 defmodule NewsbeeWeb.TopicView do
   use NewsbeeWeb, :view
   alias NewsbeeWeb.TopicView
+  alias NewsbeeWeb.UserView
 
   def render("index.json", %{topics: topics}) do
     %{data: render_many(topics, TopicView, "topic.json")}
@@ -11,7 +12,11 @@ defmodule NewsbeeWeb.TopicView do
   end
 
   def render("topic.json", %{topic: topic}) do
+    IO.inspect topic
     %{id: topic.id,
-      title: topic.title}
+      title: topic.title,
+      user: render_one(topic.user, UserView, "user.json")
+  }
   end
 end
+

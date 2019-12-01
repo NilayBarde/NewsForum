@@ -19,7 +19,7 @@ function new_user(st0 = {email: "", name: "",  password: "", errors: null}, acti
     }
 }
 
-function new_topic(st0 = {title: "",  error: null, user_id: null}, action) {
+function new_topic(st0 = {title: "", error: null, user_id: null}, action) {
     switch(action.type) {
         case 'CHANGE_NEW_TOPIC':
             return Object.assign({}, st0, action.data)
@@ -39,10 +39,10 @@ function forms(st0, action) {
 
 function topics(st0 = new Map(), action) {
     switch(action.type) {
-        case 'GET_TOPIC':
+        case 'GET_TOPICS':
             let st1 = new Map(st0)
-            action.data.forEach((topic) => {
-                st1.set(topic.id, topic)
+            action.data.forEach((job) => {
+                st1.set(job.id, job)
             })
             return st1
         case 'NEW_TOPIC':
