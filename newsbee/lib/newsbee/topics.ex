@@ -28,7 +28,10 @@ defmodule Newsbee.Topics do
       iex> get_topic!(456)
       ** (Ecto.NoResultsError)
   """
-  def get_topic!(id), do: Repo.get!(Topic, id)
+  def get_topic!(id) do
+    Repo.get!(Topic, id)
+    |> Repo.preload([:user])
+  end
 
   @doc """
   Creates a topic.

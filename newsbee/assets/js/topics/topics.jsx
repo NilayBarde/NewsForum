@@ -15,6 +15,7 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
             <tr key={key}>
                 <td>{topic.title}</td>
 		<td>{topic.user.name}</td>
+                <td><NavLink to={'/show_topic/' + topic.id}>Show Topic</NavLink></td>
 		{
 		store.getState().session.user_id == topic.user.id ?
                  <td><button className="btn btn-danger" onClick={() => delete_topic(topic.id)}>Delete</button></td>:null

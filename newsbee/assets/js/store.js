@@ -49,6 +49,10 @@ function topics(st0 = new Map(), action) {
             st1 = new Map(st0)
             st1.set(action.data.id, action.data)
             return st1
+        case 'SHOW_TOPIC':
+            let st2 = action.data
+            console.log(st2)
+            return st2
         default:
             return st0
     }

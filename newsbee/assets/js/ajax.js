@@ -116,6 +116,15 @@ export function get_topics() {
   })
 }
 
+export function get_topic(topic_id) {
+  get('/topics/' + topic_id).then(resp => {
+    store.dispatch({
+      type: 'SHOW_TOPIC',
+      data: resp.data
+    })
+  })
+}
+
 export function add_topic(form) {
   let state = store.getState()
   let data = state.forms.new_topic

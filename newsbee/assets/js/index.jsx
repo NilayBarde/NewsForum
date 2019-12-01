@@ -5,9 +5,12 @@ import { Provider, connect } from 'react-redux';
 
 import Navigation from './navbar'
 import Login from './login'
+
 import TopicsDashboard from './topics/topics'
 import NewTopic from './topics/new'
+import ShowTopic from './topics/show'
 import store from './store'
+
 import NewUser from './user/new'
 
 export default function init(root) {
@@ -36,6 +39,8 @@ function Index(props) {
 	        <Route exact path="/topics/">
 	            <TopicsDashboard />
 	        </Route>
+	        <Route path="/show_topic/:id" component={ShowTopic}>
+                </Route>
             </Switch>
         </Router>
     )
