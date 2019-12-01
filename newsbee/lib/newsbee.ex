@@ -52,19 +52,36 @@ end
 
 
 
+
+
   def get_author1(article) do
 
 
    
 #  |> Enum.each(fn (x) -> "anonymous" = nil end)
 
-  if article === nil || article === "" do
+  if Map.get(article, "author") === nil || Map.get(article, "author") === "" do
     "anonymous"
   
   else
     Map.get(article, "author")
   end
 end
+
+def null_handler(article, fields) do
+
+
+   
+#  |> Enum.each(fn (x) -> "anonymous" = nil end)
+
+  if Map.get(article, fields) === nil || Map.get(article, fields) === "" do
+    "Click the title for more details."
+  
+  else
+    Map.get(article, fields)
+  end
+end
+  
 
   def get_author2() do
     Enum.map(get_articles, fn (x) -> x["author"] end)
@@ -101,3 +118,4 @@ end
 
 
 end
+
