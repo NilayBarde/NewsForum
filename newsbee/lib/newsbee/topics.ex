@@ -16,7 +16,7 @@ defmodule Newsbee.Topics do
   """
   def list_topics do
     Repo.all(Topic)
-    |> Repo.preload([:user])
+    |> Repo.preload([:user, :comments])
   end
 
   @doc """
@@ -30,7 +30,7 @@ defmodule Newsbee.Topics do
   """
   def get_topic!(id) do
     Repo.get!(Topic, id)
-    |> Repo.preload([:user])
+    |> Repo.preload([:user, :comments])
   end
 
   @doc """

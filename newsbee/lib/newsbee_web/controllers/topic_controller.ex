@@ -23,7 +23,7 @@ defmodule NewsbeeWeb.TopicController do
 
   def show(conn, %{"id" => id}) do
     topic = Topics.get_topic!(id)
-    render(conn, "topic.json", topic: topic)
+    render(conn, "topic_comments.json", topic: topic)
   end
 
   def update(conn, %{"id" => id, "topic" => topic_params}) do

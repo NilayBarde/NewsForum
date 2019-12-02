@@ -23,9 +23,21 @@ export default class ShowTopic extends React.Component {
         })
     }
 
+renderComments(comments) {
+        return comments.map((comment) => {
+            
+            return (
+                <tr key={comment.id}>
+                    <td>{comment.content}</td>
+                </tr>
+            )
+        })
+    }   
+
+	
 render() {
         if(this.state.topic) {
-	console.log(this.state.topic.id)
+	console.log(this.state.topic)
             return(
                 <Container>
                     <h1>Topic</h1>
@@ -39,6 +51,17 @@ render() {
 				    
 		    }}
 		    >Create Comment</Link>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 {this.renderComments(this.state.topic.comments)}
+                </tbody>
+            </table>
                 </Container>
             )
         } else {
