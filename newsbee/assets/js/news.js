@@ -34,11 +34,12 @@ export default function getTitle(){
       `;
     });
     
-    console.log(output);
+    //console.log(output);
     // return output;
     
      document.getElementById('news').innerHTML = `${output}
-     <p class="footer">scroll up for more news!</p>;
+     <p class="footer">scroll up for more news!</p>
+     <p class="footer">Powered by <a href="https://newsapi.org/">newsapi.org</a></p>
      `
 
   })
