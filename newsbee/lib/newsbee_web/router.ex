@@ -26,6 +26,7 @@ defmodule NewsbeeWeb.Router do
 
     resources "/users", UserController
     resources "/sessions", SessionController, only: [:create], singleton: true
+    resources "/topics", TopicController
 
   end
 

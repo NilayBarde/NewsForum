@@ -9,6 +9,7 @@ defmodule Newsbee.Comments do
   alias Newsbee.Comments.Comment
 
   @doc """
+<<<<<<< HEAD
   Returns the list of comments.
 
   ## Examples
@@ -18,6 +19,17 @@ defmodule Newsbee.Comments do
 
   """
   def list_comments do
+=======
+  Returns the list of comment.
+
+  ## Examples
+
+      iex> list_comment()
+      [%Comment{}, ...]
+
+  """
+  def list_comment do
+>>>>>>> nilay
     Repo.all(Comment)
   end
 
