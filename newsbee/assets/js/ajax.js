@@ -156,36 +156,24 @@ export function delete_topic(id) {
 
 export function add_comment(form) {
   let state = store.getState()
-  let data = state.comments
-  console.log('new_comment' + data)
-  let comments = Array.from(data, ([key, comment]) => {
-    return comment
+  let data = state.forms.new_comment
+  console.log(data)
+  post('/comments', {comment: data}).then(resp => {
+    if(resp.data) {
+      store.dispatch({
+        type: 'CHANGE_NEW_COMMENT',
+        data: resp.data.id
+      })
+      form.redirect('/show_topic/' + data.topic_id)
+    } else {
+      store.dispatch({
+        type: 'CHANGE_NEW_COMMENT',
+        data: {errors: JSON.stringify(resp.errors)},
+      });
+    }
   })
-  let add_comment
-  comments.forEach((comment) => {
-    add_comment = post('/comments', {comment})
-  })
-
-  add_comment.then(resp => {
-    store.dispatch({
-      type: 'GET_TOPICS',
-      data: [state.forms.new_topic]
-    })
-    store.dispatch({
-      type: 'CLEAR_TOPIC',
-      data: null
-    })
-    store.dispatch({
-      type: 'CLEAR_COMMENT',
-      data: null
-    })
-    store.dispatch({
-      type: 'CLEAR_COMMENTS',
-      data: null
-    })
-  })
-    form.redirect('/topics')
 }
+
 
 export function get_comments(topic_id) {
   get('/topics/' + topic_id).then(resp => {

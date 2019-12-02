@@ -28,6 +28,7 @@ renderComments(comments) {
             
             return (
                 <tr key={comment.id}>
+		    <td>{comment.user_id}</td>
                     <td>{comment.content}</td>
                 </tr>
             )
