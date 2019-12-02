@@ -22,9 +22,6 @@ defmodule Newsbee do
   end
 
 
-  def column_names() do 
-  Enum.join ~w(Title Author Description Url UrlToImage)
-  end
 
   def get_articles() do
 
