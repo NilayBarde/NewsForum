@@ -1,6 +1,6 @@
 defmodule NewsbeeWeb.TopicView do
   use NewsbeeWeb, :view
-<<<<<<< HEAD
+
   alias NewsbeeWeb.TopicView
   alias NewsbeeWeb.UserView
   alias NewsbeeWeb.CommentView
@@ -29,6 +29,4 @@ defmodule NewsbeeWeb.TopicView do
       comments: render_many(topic.comments, CommentView, "comment.json")
   }
   end
-=======
->>>>>>> origin/chen2
 end
