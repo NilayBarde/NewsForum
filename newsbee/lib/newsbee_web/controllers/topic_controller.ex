@@ -4,24 +4,28 @@ defmodule NewsbeeWeb.TopicController do
   alias Newsbee.Topics
   alias Newsbee.Topics.Topic
 
-  plug NewsbeeWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
+  # plug NewsbeeWeb.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
 
   def index(conn, _params) do
-    IO.inspect(conn)
-    IO.inspect("+++++++++++++++")
+    
+    
     topics = Topics.list_topics()
     render(conn, "index.html", topics: topics)
   end
 
-  def new(conn, _params) do
-    changeset = Topics.change_topic(%Topic{})
+  def new(conn, url) do
+    IO.inspect(url)
+    changeset = Topics.change_topic(url)
+    IO.inspect(changeset)
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"topic" => topic_params}) do
+  def create(conn, params) do
       # conn.assigns[:user] is the same as conn.assigns.user
-
-    case Topics.create_topic(conn, topic_params) do
+    IO.inspect("+++++++++++++++")
+    IO.inspect(params)
+    %{"topic" => topic_params} = params
+    case Topics.create_topic(topic_params) do
       {:ok, topic} ->
         conn
         |> put_flash(:info, "Topic created successfully.")

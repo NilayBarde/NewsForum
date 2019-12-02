@@ -30,7 +30,7 @@ defmodule NewsbeeWeb.Router do
   end
 
   scope "/", NewsbeeWeb do
-    pipe_through :ajax
+    pipe_through :browser
 
     get "/", TopicController, :index
     get "/users", PageController, :index

@@ -50,9 +50,8 @@ defmodule Newsbee.Topics do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_topic(conn, attrs \\ %{}) do
-    conn.assigns.user
-    |> build_assoc(:topics)
+  def create_topic(attrs \\ %{}) do
+    %Topic{}
     |> Topic.changeset(attrs)
     |> Repo.insert()
   end
@@ -100,7 +99,7 @@ defmodule Newsbee.Topics do
       %Ecto.Changeset{source: %Topic{}}
 
   """
-  def change_topic(%Topic{} = topic) do
-    Topic.changeset(topic, %{})
+  def change_topic(url) do
+    Topic.changeset(%Topic{}, url)
   end
 end

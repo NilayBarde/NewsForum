@@ -34,7 +34,7 @@
       
       <br>
       <div class="list-group-item"> <%= Newsbee.null_handler(article, "description") %></div>
-  
+      <span><%= link "Create this Topic", to: Routes.topic_path(@conn, :new, %{:news_url => article["url"]}) %></span>
  
    </ul>
     

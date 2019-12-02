@@ -4,6 +4,7 @@ defmodule Newsbee.Topics.Topic do
 
   schema "topics" do
     field :title, :string
+    field :news_url, :string
     belongs_to :user, Newsbee.Users.User
     has_many :comments, Newsbee.Comments.Comment
 
@@ -13,7 +14,7 @@ defmodule Newsbee.Topics.Topic do
   @doc false
   def changeset(topic, attrs) do
     topic
-    |> cast(attrs, [:title])
-    |> validate_required([:title])
+    |> cast(attrs, [:news_url])
+    |> validate_required( [:news_url])
   end
 end
