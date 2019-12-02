@@ -8,6 +8,8 @@ defmodule Newsbee.Users.User do
     field :password, :string, virtual: true
 
     field :password_hash, :string
+    has_many :topics, Newsbee.Topics.Topic
+    has_many :comments, Newsbee.Comments.Comment
 
     timestamps()
   end

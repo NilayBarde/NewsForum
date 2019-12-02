@@ -1,5 +1,6 @@
 defmodule NewsbeeWeb.Plugs.RequireAuth do
   import Plug.Conn
+  use NewsbeeWeb, :controller
 
   def init(args), do: args
 

@@ -1,5 +1,6 @@
 defmodule NewsbeeWeb.CommentView do
   use NewsbeeWeb, :view
+<<<<<<< HEAD
   alias NewsbeeWeb.CommentView
 
   def render("index.json", %{comment: comment}) do
@@ -14,4 +15,6 @@ defmodule NewsbeeWeb.CommentView do
     %{id: comment.id,
       content: comment.content}
   end
+=======
+>>>>>>> origin/chen2
 end

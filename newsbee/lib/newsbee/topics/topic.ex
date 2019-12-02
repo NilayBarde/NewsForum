@@ -13,7 +13,12 @@ defmodule Newsbee.Topics.Topic do
   @doc false
   def changeset(topic, attrs) do
     topic
+<<<<<<< HEAD
     |> cast(attrs, [:title, :user_id])
     |> validate_required([:title, :user_id])
+=======
+    |> cast(attrs, [:title])
+    |> validate_required([:title])
+>>>>>>> origin/chen2
   end
 end
