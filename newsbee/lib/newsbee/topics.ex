@@ -99,7 +99,7 @@ defmodule Newsbee.Topics do
       %Ecto.Changeset{source: %Topic{}}
 
   """
-  def change_topic(url) do
-    Topic.changeset(%Topic{}, url)
+  def change_topic(%Topic{} = topic) do
+    Topic.changeset(topic, %{})
   end
 end

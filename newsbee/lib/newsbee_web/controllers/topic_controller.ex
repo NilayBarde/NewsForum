@@ -15,7 +15,8 @@ defmodule NewsbeeWeb.TopicController do
 
   def new(conn, url) do
     IO.inspect(url)
-    changeset = Topics.change_topic(url)
+    assign(conn, :url, url)
+    changeset = Topics.change_topic(%Topic{})
     IO.inspect(changeset)
     render(conn, "new.html", changeset: changeset)
   end
@@ -24,7 +25,8 @@ defmodule NewsbeeWeb.TopicController do
       # conn.assigns[:user] is the same as conn.assigns.user
     IO.inspect("+++++++++++++++")
     IO.inspect(params)
-    %{"topic" => topic_params} = params
+    topic_params = %{:title => params[:topic][:title], :news_url => conn.assigns.url}
+    # %{"topic" => topic_params} = params
     case Topics.create_topic(topic_params) do
       {:ok, topic} ->
         conn
