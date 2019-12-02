@@ -31,6 +31,7 @@ defmodule Newsbee.Topics do
   def get_topic!(id) do
     Repo.get!(Topic, id)
     |> Repo.preload([:user])
+    |> Repo.preload([:comment])
   end
 
   @doc """

@@ -176,12 +176,13 @@ export function get_comments(topic_id) {
   get('/topics/' + topic_id).then(resp => {
     if(resp.data) {
       store.dispatch({
-        type: 'GET_TOPICS',
-        data: resp.data.topics
+        type: 'GET_COMMENTS',
+        data: resp.data.comments
       })
     }
   })
 }
+
 
 export function get_comment(comment_id) {
   get('/comments/' + comment_id).then(resp => {

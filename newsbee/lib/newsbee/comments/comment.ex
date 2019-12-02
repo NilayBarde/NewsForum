@@ -15,7 +15,7 @@ defmodule Newsbee.Comments.Comment do
   @doc false
   def changeset(comment, attrs) do
     comment
-    |> cast(attrs, [:content])
-    |> validate_required([:content])
+    |> cast(attrs, [:content, :user_id, :topic_id])
+    |> validate_required([:content, :user_id, :topic_id])
   end
 end
