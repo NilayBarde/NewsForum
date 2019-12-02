@@ -17,8 +17,14 @@ import "phoenix_html"
 // import socket from "./socket"
 
 import init_page from './index';
+import getTitle from './news';
 
 window.addEventListener("load", () => {
   let root = document.getElementById('root');
   init_page(root);
+});
+
+window.addEventListener("load", () => {
+  let news = document.getElementById('news');
+  getTitle(news);
 });

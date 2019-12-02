@@ -15,7 +15,7 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
             <tr key={key}>
                 <td>{topic.title}</td>
 		<td>{topic.user.name}</td>
-                <td><NavLink to={'/show_topic/' + topic.id}>Show Topic</NavLink></td>
+                <td><NavLink to={'/show_topic/' + topic.id}>Enter This Topic</NavLink></td>
 		{
 		store.getState().session.user_id == topic.user.id ?
                  <td><button className="btn btn-danger" onClick={() => delete_topic(topic.id)}>Delete</button></td>:null
@@ -26,7 +26,7 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
     return (
         <div className="container">
             <h1>Topics</h1>
-            <NavLink className="btn btn-primary ml-auto d-block add-btn" to="/new_topic">Create Topic</NavLink>
+            
             <table className="table">
                 <thead>
                     <tr>
@@ -38,6 +38,8 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
                     {renderTopics}
                 </tbody>
             </table>
+	    <NavLink className="btn btn-primary ml-auto d-block add-btn" to="/new_topic">Create Your Topic</NavLink>
+	    
         </div>
     )
 })

@@ -42,16 +42,7 @@ render() {
             return(
                 <Container>
                     <h1>Topic</h1>
-                    <h6>Title: {this.state.topic.title}</h6>
-            <Link className="btn btn-primary ml-auto d-block" to=
-		    {{
-		      pathname:"/new_comment", 
-	              state:{
-			      id: this.state.topic.id 
-		      }
-				    
-		    }}
-		    >Create Comment</Link>
+                    <h3>Thread Title: {this.state.topic.title}</h3>
             <table className="table">
                 <thead>
                     <tr>
@@ -63,6 +54,15 @@ render() {
                  {this.renderComments(this.state.topic.comments)}
                 </tbody>
             </table>
+            <Link className="btn btn-primary ml-auto d-block" to=
+		    {{
+		      pathname:"/new_comment", 
+	              state:{
+			      id: this.state.topic.id 
+		      }
+				    
+		    }}
+		    >Create Comment</Link>		    
                 </Container>
             )
         } else {

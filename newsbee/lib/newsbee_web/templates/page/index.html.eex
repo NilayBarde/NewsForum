@@ -1,3 +1,7 @@
 <div id="root">
   React app loading...
 </div>
+
+<div id="news">
+ news
+</div>

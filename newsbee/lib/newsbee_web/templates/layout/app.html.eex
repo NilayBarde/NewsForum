@@ -13,5 +13,8 @@
   <body>
     <%= render @view_module, @view_template, assigns %>    
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+    <div id ="news"></div>
+ <script type="javascript" src="<%= Routes.static_path(@conn, "/js/news.js") %>"></script>
   </body>
 </html>
