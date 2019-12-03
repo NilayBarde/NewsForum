@@ -81,36 +81,36 @@ end
   
 
   def get_author2() do
-    Enum.map(get_articles, fn (x) -> x["author"] end)
+    Enum.map(get_articles(), fn (x) -> x["author"] end)
   end
 
  
 
   def get_title() do
 
-Enum.map(get_articles, fn (x) -> x["title"] end)  
+Enum.map(get_articles(), fn (x) -> x["title"] end)  
 end
 
 
 def get_description() do
 
-Enum.map(get_articles, fn (x) -> x["description"] end)  
+Enum.map(get_articles(), fn (x) -> x["description"] end)  
 end
 
 def get_url() do
 
-Enum.map(get_articles, fn (x) -> x["url"] end)  
+Enum.map(get_articles(), fn (x) -> x["url"] end)  
 end
 
 
 def get_urlToImage() do
 
-Enum.map(get_articles, fn (x) -> x["urlToImage"] end)  
+Enum.map(get_articles(), fn (x) -> x["urlToImage"] end)  
 end
 
 def get_source() do
 
-Enum.map(get_articles, fn (x) -> x["source"] end)  
+Enum.map(get_articles(), fn (x) -> x["source"] end)  
 end
 
 

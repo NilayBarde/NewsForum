@@ -3,11 +3,7 @@ defmodule Newsbee.CommentsTest do
 
   alias Newsbee.Comments
 
-<<<<<<< HEAD
-  describe "comments" do
-=======
   describe "comment" do
->>>>>>> nilay
     alias Newsbee.Comments.Comment
 
     @valid_attrs %{content: "some content"}
@@ -23,15 +19,9 @@ defmodule Newsbee.CommentsTest do
       comment
     end
 
-<<<<<<< HEAD
-    test "list_comments/0 returns all comments" do
-      comment = comment_fixture()
-      assert Comments.list_comments() == [comment]
-=======
     test "list_comment/0 returns all comment" do
       comment = comment_fixture()
       assert Comments.list_comment() == [comment]
->>>>>>> nilay
     end
 
     test "get_comment!/1 returns the comment with given id" do
