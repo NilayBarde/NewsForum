@@ -154,7 +154,6 @@ export function delete_topic(id) {
   })
 }
 
-<<<<<<< HEAD
 export function add_comment(form) {
   let state = store.getState()
   let data = state.forms.new_comment
@@ -195,7 +194,3 @@ export function get_comment(comment_id) {
     })
   })
 }
-=======
-
-
->>>>>>> master
