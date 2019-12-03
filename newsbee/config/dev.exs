@@ -4,7 +4,7 @@ use Mix.Config
 config :newsbee, Newsbee.Repo,
   username: "newsbee",
   password: "8r5QFSKfYgrsaeX4",
-  database: "newsbee_dev",
+  database: "newsbee_prod",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

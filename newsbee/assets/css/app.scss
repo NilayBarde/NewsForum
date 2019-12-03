@@ -1,6 +1,5 @@
 // With scss, Bootstrap lets us override colors and stuff.
 @import "~bootstrap/scss/bootstrap";
-
 body {
   font-family: sans-serif;
   background-color: #dedede;
@@ -27,6 +26,7 @@ img {
   background-color: #fff;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  background-image: linear-gradient(to right, #00416A,#E4E5E6);
 }
 
 .animal h4 {
@@ -36,8 +36,9 @@ img {
 .pet-photo {
   float: left;
   width: 40%;
-  max-height: 400px;
+  max-height: 300px;
   margin-right: 15px;
+  box-shadow: 10px 10px 5px grey;
 }
 
 .pet-name {
@@ -74,4 +75,13 @@ img {
   text-align: center;
   font-weight: normal;
   font-size: 2.6rem;
+  background: -webkit-linear-gradient(#bdc3c7,#2c3e50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list-group-item{
+  float: right;
+  width: 55%;
+  background-image: linear-gradient(to right, #12c2e9,#c471ed,#f64f59);
 }
