@@ -54,7 +54,8 @@ render() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Comments</th>
+		        <th>User</th>
+                        <th>Comment</th>
                     </tr>
                 </thead>
                 <tbody>
