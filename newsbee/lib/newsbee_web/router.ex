@@ -29,7 +29,9 @@ pipeline :browser do
   scope "/", NewsbeeWeb do
     pipe_through :browser
 
+    resources "/news", NewsController
     get "/*path", PageController, :index
+
   end
 
   # Other scopes may use custom stacks.

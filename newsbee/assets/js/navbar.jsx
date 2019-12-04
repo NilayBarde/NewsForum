@@ -36,6 +36,10 @@ let Session = connect(({ session }) => ({ session }))(({ session, dispatch }) =>
           <p className="text-light py-2">User: {session.user_name}</p>
         </Nav.Item>
 	<Nav.Item>
+           <Nav.Link href="/news">News</Nav.Link>
+
+        </Nav.Item>
+	<Nav.Item>
                     <NavLink to="/topics" exact className="nav-link" activeClassName="active">
                         Topics
                     </NavLink>
