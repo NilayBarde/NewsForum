@@ -1,6 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">Newsbee</a>
+
+
+  <div class="dropdown">
+  <button class="dropbtn">Category </button>
+  <div class="dropdown-content">
+    <span><%= link "sports", to: Routes.news_path(@conn, :sports)%></span>
+<span><%= link "business", to: Routes.news_path(@conn, :business)%></span>
+<span><%= link "entertainment", to: Routes.news_path(@conn, :entertainment)%></span>
+<span><%= link "health", to: Routes.news_path(@conn, :health)%></span>
+  </div>
+</div>
+
+
+  <%# <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div> %>
+
+
+
+
+
+
+
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/news">News</a>
@@ -14,40 +44,12 @@
 
 
 
-<div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
 
 
-<form>
-<select name="list" id="list" accesskey="target">
-    <option value='none' selected>Choose a theme</option>
-    <option value="sports.html.eex">Theme 1</option>
-    <option value="theme2.html">Theme 2</option>
-    <option value="theme3.html">Theme 3</option>
-</select>
-<input type=button value="Go" onclick="goToNewPage()" />
-</form>
 
-<script type="text/javascript">
-    function goToNewPage()
-    {
-        var url = document.getElementById('list').value;
-        if(url != 'none') {
-            window.location = url;
-        }
-    }
-</script>
 
-<span><%= link "sports", to: Routes.news_path(@conn, :sports)%></span>
-<span><%= link "business", to: Routes.news_path(@conn, :business)%></span>
-<span><%= link "entertainment", to: Routes.news_path(@conn, :entertainment)%></span>
-<span><%= link "health", to: Routes.news_path(@conn, :health)%></span>
+
+
 
 
 
