@@ -23,6 +23,10 @@ defmodule NewsbeeWeb.NewsController do
     render(conn, "health.html")
   end
 
+  def health(conn, _params) do
+    render(conn, "technology.html")
+  end
+
 
 end
 

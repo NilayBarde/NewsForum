@@ -73,6 +73,15 @@ defmodule Newsbee do
    
   end
 
+
+  def get_technology_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("technology")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
   
 
   def get_author() do
