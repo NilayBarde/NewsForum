@@ -12,6 +12,13 @@ defmodule Newsbee do
   key = "d3c496691bb54f3b86ccb6f379d0bc9e"
   "#{web_api}&apiKey=#{key}"
   end
+
+    def getnews_bycategory(tag) do
+  web_api = "https://newsapi.org/v2/top-headlines?country=us"
+  key = "d3c496691bb54f3b86ccb6f379d0bc9e"
+  tag = tag
+  "#{web_api}&category=#{tag}&apiKey=#{key}"
+  end
   
 
     def fetch_articles() do
@@ -30,6 +37,17 @@ defmodule Newsbee do
   body["articles"]
    
   end
+
+
+  def get_sport_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("sport")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+  
 
   def get_author() do
 
@@ -115,4 +133,5 @@ end
 
 
 end
+
 

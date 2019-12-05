@@ -31,6 +31,7 @@ pipeline :browser do
 
     resources "/news", NewsController
     get "/*path", PageController, :index
+    get "/sports", NewsController, :sports
 
   end
 
@@ -39,3 +40,4 @@ pipeline :browser do
   #   pipe_through :api
   # end
 end
+
