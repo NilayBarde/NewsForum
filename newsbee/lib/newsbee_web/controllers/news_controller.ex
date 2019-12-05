@@ -8,5 +8,21 @@ defmodule NewsbeeWeb.NewsController do
   def sports(conn, _params) do
     render(conn, "sports.html")
   end
+
+
+  def business(conn, _params) do
+    render(conn, "business.html")
+  end
+
+
+  def entertainment(conn, _params) do
+    render(conn, "entertainment.html")
+  end
+
+  def health(conn, _params) do
+    render(conn, "health.html")
+  end
+
+
 end
 

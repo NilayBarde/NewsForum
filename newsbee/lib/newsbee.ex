@@ -47,6 +47,32 @@ defmodule Newsbee do
    
   end
 
+  def get_business_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("business")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+  def get_health_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("health")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+
+
+  def get_entertainment_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("entertainment")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
   
 
   def get_author() do
