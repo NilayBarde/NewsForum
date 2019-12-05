@@ -26,12 +26,29 @@ pipeline :browser do
 
   end
 
+scope "/", NewsbeeWeb do
+  pipe_through :browser
+
+  get "/", PageController, :index
+  get "/sports", NewsController, :sports
+end
+
+scope "/topics", NewsbeeWeb do
+  pipe_through :browser
+
+  get "/", PageController, :index
+end
+
   scope "/", NewsbeeWeb do
     pipe_through :browser
 
-    resources "/news", NewsController
-    get "/*path", PageController, :index
-    get "/sports", NewsController, :sports
+    # resources "/", NewsController
+    
+    # get "/*path", PageController, :index
+    # get "/news/sports", NewsController, :sports
+    get "/news", NewsController, :index
+    get "/news/topics", PageController, :index
+
 
   end
 
