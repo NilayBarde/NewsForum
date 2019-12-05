@@ -30,6 +30,7 @@ defmodule NewsbeeWeb.TopicController do
       # conn.assigns[:user] is the same as conn.assigns.user
     IO.inspect("+++++++++++++++")
     IO.inspect(conn)
+    IO.inspect("+++++++++++++++inspect params")
 
     IO.inspect(params)
     topic_params = %{:title => params[:topic][:title], :news_url => conn.assigns.url}
