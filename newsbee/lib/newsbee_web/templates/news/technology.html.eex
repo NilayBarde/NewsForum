@@ -9,6 +9,7 @@
 <span><%= link "business", to: Routes.news_path(@conn, :business)%></span>
 <span><%= link "entertainment", to: Routes.news_path(@conn, :entertainment)%></span>
 <span><%= link "health", to: Routes.news_path(@conn, :health)%></span>
+<span><%= link "technology", to: Routes.news_path(@conn, :technology)%></span>
   </div>
 </div>
 
