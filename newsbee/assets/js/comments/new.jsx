@@ -43,9 +43,15 @@ class NewComment extends React.Component {
         this.changed({user_id: store.getState().session.user_id})
 	this.changed({topic_id: this.props.location.state.id})
         return(
+            <body class = "topic_bg">
             <Container>
                 <h1 align="center">New Comment</h1>
                 { error_msg }
+                <br>
+                </br>
+                <br>
+                </br>
+               
                 <Form.Group controlId="content">
                     <Form.Label>Content</Form.Label>
                     <Form.Control type="text" 
@@ -54,6 +60,51 @@ class NewComment extends React.Component {
                 </Form.Group>
                 <Button variant="primary" onClick={() => {add_comment(this)}}>Create Comment</Button>
             </Container>
+            <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>  <br>
+                </br>
+                <br>
+                </br>
+                
+            </body>
         )
     }
 
@@ -64,3 +115,4 @@ function state2props(state) {
 }
 
 export default withRouter(connect(state2props)(NewComment));
+
