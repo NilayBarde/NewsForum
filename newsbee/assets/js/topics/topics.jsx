@@ -24,6 +24,7 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
         )
     })
     return (
+        <body class = "topic_bg">
         <div className="container">
             <h1>Topics</h1>
             <NavLink className="btn btn-primary ml-auto d-block add-btn" to="/new_topic">Create Topic</NavLink>
@@ -39,7 +40,9 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
                 </tbody>
             </table>
         </div>
+        </body>
     )
 })
 
 export default topicList
+

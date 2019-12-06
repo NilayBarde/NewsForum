@@ -22,7 +22,7 @@ img {
 .animal {
   max-width: 1000px;
   padding: 20px;
-  margin: 30px auto;
+  margin: 100px auto;
   background-color: #fff;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -221,7 +221,11 @@ img {
   max-height:50%;
   margin:0 auto;
   padding: 0;
-  display: block;
+  display: block; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  background-size: cover;
 }
 
 .entertainment_bg{
@@ -266,6 +270,15 @@ img {
 
 .index_bg{
   background-image: url(https://ichef.bbci.co.uk/images/ic/720x405/p05vtkdr.jpg);
+  max-width:50%;
+  max-height:50%;
+  margin:0 auto;
+  padding: 0;
+  display: block;
+}
+
+.topic_bg{
+  background-image: url(https://scontent.fbed1-1.fna.fbcdn.net/v/t1.0-9/20953044_1461745670527406_132831486733253753_n.jpg?_nc_cat=100&_nc_ohc=AmfdCTYo4GMAQlfdng1biYZCV-M8Txe9Y5MMLTKh2JqW0fdJY5lwG-bWA&_nc_ht=scontent.fbed1-1.fna&oh=819e8da11384295e553616730d38857d&oe=5E8A64FD);
   max-width:50%;
   max-height:50%;
   margin:0 auto;
