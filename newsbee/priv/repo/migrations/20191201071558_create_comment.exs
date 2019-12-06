@@ -1,4 +1,4 @@
-defmodule Newsbee.Repo.Migrations.CreateComments do
+defmodule Newsbee.Repo.Migrations.CreateComment do
   use Ecto.Migration
 
   def change do

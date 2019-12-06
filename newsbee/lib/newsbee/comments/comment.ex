@@ -2,8 +2,6 @@ defmodule Newsbee.Comments.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @derive {Jason.Encoder, only: [:content]}
-
   schema "comments" do
     field :content, :string
     belongs_to :user, Newsbee.Users.User
@@ -15,7 +13,7 @@ defmodule Newsbee.Comments.Comment do
   @doc false
   def changeset(comment, attrs) do
     comment
-    |> cast(attrs, [:content])
-    |> validate_required([:content])
+    |> cast(attrs, [:content, :topic_id, :user_id])
+    |> validate_required([:content, :topic_id, :user_id])
   end
 end

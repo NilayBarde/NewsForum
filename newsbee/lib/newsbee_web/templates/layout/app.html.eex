@@ -10,20 +10,7 @@
       window.csrf_token = "<%= Phoenix.Controller.get_csrf_token() %>"
     </script>
   </head>
-  <body>
-
-    <nav class="light-blue">
-      <div class="nav-wrapper container">
-        <a href="/" class="brand-logo">
-          Newsbee
-        </a>
-
-      </div>
-    </nav>
+    <body>
     <%= render @view_module, @view_template, assigns %>    
-   <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-   
-   <div id ="news"></div>
- <script type="javascript" src="<%= Routes.static_path(@conn, "/js/news.js") %>"></script>
-  </body>
-</html>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body></html>

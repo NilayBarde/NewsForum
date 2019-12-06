@@ -3,10 +3,11 @@ import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
 import { Form, Container, Button, Alert } from 'react-bootstrap'
 import { Redirect } from 'react-router'
+import store from '../store'
 
-import { submit_login } from './ajax'
+import { add_topic } from '../ajax'
 
-class Login extends React.Component {
+class NewTopic extends React.Component {
     constructor(props) {
         super(props)
 
@@ -21,88 +22,72 @@ class Login extends React.Component {
 
     changed(data) {
         this.props.dispatch({
-            type: 'CHANGE_LOGIN', data
+            type: 'CHANGE_NEW_TOPIC', data
         })
     }
 
     render() {
+
+        if(!store.getState().session) {
+            return <Redirect to="/" />
+        }
+
         if(this.state.redirect)
             return <Redirect to={this.state.redirect} />
 
-        let {email, password, type, errors} = this.props
+        let {title, errors} = this.props
         let error_msg = null
         if(errors) {
             error_msg = <Alert variant="danger">{ errors }</Alert>
-        }
+       }
+        this.changed({user_id: store.getState().session.user_id})
         return(
-            <body class = "login_bg">
+            <body class = "topic_bg">
             <Container>
+                <h1 align="center">New Topic</h1>
+                { error_msg }
+                <Form.Group controlId="title">
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control type="text" 
+                        onChange={(ev) => {this.changed({title: ev.target.value})}}
+                    />
+                </Form.Group>
+                <Button variant="primary" onClick={() => {add_topic(this)}}>Create</Button>
+            </Container>
             <br>
                 </br> 
                 <br>
                 </br>
                 <br>
                 </br>
-                <h1 align="center">Login</h1>
-                { error_msg }
                 <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
                 </br> 
                 <br>
                 </br>
                 <br>
                 </br>
                 <br>
-                </br>
-                <br>
-                </br>
-                <form>
-                <div className="form-label-group">
-                
-                
-                    <input type="email"id="inputEmail" className="form-control" placeholder="Email address" required autoFocus 
-                    onChange={(ev) => {this.changed({email: ev.target.value})}}
-                    />
-                <br>
                 </br> 
                 <br>
                 </br>
                 <br>
-                </br>
-              
-                </div>
-
-
-                <div className="form-label-group">
-                  <input type="password" id="inputPassword" className="form-control" placeholder="Password" required 
-                  onChange={(ev) => {this.changed({password: ev.target.value})}}/>
-                <br>
-                </br> 
-                <br>
-                </br>
-                <br>
-                </br>
-                 
-                </div>
-                {/* <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" 
-                        onChange={(ev) => {this.changed({password: ev.target.value})}}
-                    />
-                </Form.Group> */}
-                <Button variant="primary" onClick={() => {submit_login(this)}}>Login</Button>
-                <br>
+                </br><br>
                 </br> 
                 <br>
                 </br>
                 <br>
                 </br>
                 <br>
-                </br>
+                </br> 
                 <br>
                 </br>
-                
-                </form>
                 <br>
+                </br><br>
                 </br> 
                 <br>
                 </br>
@@ -114,10 +99,16 @@ class Login extends React.Component {
                 </br>
                 <br>
                 </br>
-             
-                
-
-            </Container>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
             </body>
         )
     }
@@ -125,8 +116,9 @@ class Login extends React.Component {
 }
 
 function state2props(state) {
-    return state.forms.login;
+    return state.forms.new_topic;
 }
 
-export default connect(state2props)(Login);
+export default connect(state2props)(NewTopic);
+
 

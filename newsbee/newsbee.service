@@ -1,0 +1,16 @@
+[Unit]
+Description=Newsbee Forum Web APP 
+
+[Service]
+Type=simple
+User=newsbee
+Group=newsbee
+Restart=on-failure
+Environment=MIX_ENV=prod "PORT=4875"
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/home/newsbee/NewsForum/newsbee
+ExecStart=/bin/bash /home/newsbee/NewsForum/newsbee/start.sh
+
+[Install]
+WantedBy=multi-user.target

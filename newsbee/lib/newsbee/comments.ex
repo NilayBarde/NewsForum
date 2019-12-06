@@ -9,15 +9,15 @@ defmodule Newsbee.Comments do
   alias Newsbee.Comments.Comment
 
   @doc """
-  Returns the list of comments.
+  Returns the list of comment.
 
   ## Examples
 
-      iex> list_comments()
+      iex> list_comment()
       [%Comment{}, ...]
 
   """
-  def list_comments do
+  def list_comment do
     Repo.all(Comment)
   end
 
@@ -35,7 +35,8 @@ defmodule Newsbee.Comments do
       ** (Ecto.NoResultsError)
 
   """
-  def get_comment!(id), do: Repo.get!(Comment, id)
+  def get_comment!(id), do: 
+    Repo.get!(Comment, id) 
 
   @doc """
   Creates a comment.

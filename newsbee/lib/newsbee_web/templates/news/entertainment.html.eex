@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sports news</title>
+  </head>
+<body class = "entertainment_bg">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Newsbee</a>
+
+
+  <div class="dropdown">
+  <button class="dropbtn">Category </button>
+  <div class="dropdown-content">
+    <span><%= link "sports", to: Routes.news_path(@conn, :sports)%></span>
+<span><%= link "business", to: Routes.news_path(@conn, :business)%></span>
+<span><%= link "entertainment", to: Routes.news_path(@conn, :entertainment)%></span>
+<span><%= link "health", to: Routes.news_path(@conn, :health)%></span>
+<span><%= link "technology", to: Routes.news_path(@conn, :technology)%></span>
+  </div>
+</div>
+
+
+  <%# <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div> %>
+
+
+
+
+
+
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/news">News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="topics">Topics</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="table table-striped">
+  <tbody>
+<%= for article <- Newsbee.get_entertainment_articles() do %>
+  <ul class = "animal"> 
+    <img class="pet-photo" src=<%= Newsbee.null_handler(article, "urlToImage") %> alt="Not Found" onerror=this.src="https://scontent.fbed1-1.fna.fbcdn.net/v/t1.0-9/20953044_1461745670527406_132831486733253753_n.jpg?_nc_cat=100&_nc_ohc=AmfdCTYo4GMAQlfdng1biYZCV-M8Txe9Y5MMLTKh2JqW0fdJY5lwG-bWA&_nc_ht=scontent.fbed1-1.fna&oh=819e8da11384295e553616730d38857d&oe=5E8A64FD">
+    <a class = "title_color" href= <%= Newsbee.null_handler(article, "url") %> target="_blank" ><h3> <%= Newsbee.null_handler(article, "title") %></h3></a>
+        <div><i><small><%= Newsbee.get_author1(article) %></small></i></div>
+      
+      <br>
+      <div class="list-group-item"> <%= Newsbee.null_handler(article, "description") %></div>
+  
+ 
+   </ul>
+    
+<% end %>
+<p class="footer">scroll up for more news!</p>
+     <p class="footer">Powered by <a href="https://newsapi.org/">newsapi.org</a></p>
+ </tbody>
+</table>
+
+</body>

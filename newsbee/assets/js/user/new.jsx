@@ -39,29 +39,75 @@ class NewUser extends React.Component {
             error_msg = <Alert variant="danger">{ errors }</Alert>
         }
         return(
+            <body class = "login_bg">
             <Container>
+            <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
                 <h1 align="center">Registration</h1>
                 { error_msg }
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                
+               
                 <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="name" 
                         onChange={(ev) => {this.changed({name: ev.target.value})}}
                     />
                 </Form.Group>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+               
                 <Form.Group controlId="email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" 
                         onChange={(ev) => {this.changed({email: ev.target.value})}}
                     />
                 </Form.Group>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+               
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" 
                         onChange={(ev) => {this.changed({password: ev.target.value})}}
                     />
                 </Form.Group>
+                
+                <br>
+                </br>
+                <br>
+                </br>
                 <Button variant="primary" onClick={() => {add_user(this)}}>Register</Button>
             </Container>
+
+            <br>
+                </br>
+                <br>
+                </br> <br>
+                </br>
+                <br>
+                </br> <br>
+                </br>
+                <br>
+                </br>
+            </body>
         )
     }
 
@@ -72,4 +118,5 @@ function state2props(state) {
 }
 
 export default connect(state2props)(NewUser);
+
 

@@ -23,7 +23,7 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
-config :newsbee, NewsbeeWeb.Endpoint,
+config :newsbee, NewsbeeWeb.Endpoint, server: true,
   http: [:inet6, port: String.to_integer(System.get_env("PORT") || "4000")],
   secret_key_base: secret_key_base
 

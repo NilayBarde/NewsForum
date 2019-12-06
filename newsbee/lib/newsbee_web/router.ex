@@ -1,17 +1,12 @@
 defmodule NewsbeeWeb.Router do
   use NewsbeeWeb, :router
-  import Plug.Conn
 
-
-# pipeline: some preprocessing on the request
-  pipeline :browser do
-
+pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-
   end
 
   pipeline :ajax do
@@ -26,36 +21,49 @@ defmodule NewsbeeWeb.Router do
 
     resources "/users", UserController
     resources "/sessions", SessionController, only: [:create], singleton: true
+    resources "/topics", TopicController
+    resources "/comments", CommentController
 
   end
+
+<<<<<<< HEAD
+  scope "/", NewsbeeWeb do
+    pipe_through :browser
+=======
+scope "/", NewsbeeWeb do
+  pipe_through :browser
+>>>>>>> song1205
+
+  get "/", PageController, :index
+  get "/sports", NewsController, :sports
+  get "/health", NewsController, :health
+  get "/business", NewsController, :business
+  get "/entertainment", NewsController, :entertainment
+  get "/technology", NewsController, :technology
+end
+
+scope "/topics", NewsbeeWeb do
+  pipe_through :browser
+
+  get "/", PageController, :index
+end
 
   scope "/", NewsbeeWeb do
     pipe_through :browser
 
-    get "/", TopicController, :index
-    get "/users", PageController, :index
-    get "/topics/new", TopicController, :new
-    post "/topics", TopicController, :create
-    get "topics/:id/show", TopicController, :show
-    get "topics/:id/edit", TopicController, :edit
-    delete "topics/:id/delete", TopicController, :delete
-    put "topics/:id/update", TopicController, :update
-
-    # resources "/", TopicController
+    # resources "/", NewsController
+    
     # get "/*path", PageController, :index
-    get "/login", PageController, :index
+    # get "/news/sports", NewsController, :sports
+    get "/news", NewsController, :index
+    get "/news/topics", PageController, :index
+
+
   end
-
-
-   scope "/auth", NewsbeeWeb do
-     pipe_through :browser
-
-     get "/:provider", AuthController, :request    # request function is defined automatically by ueberauth module
-     get "/:provider/callback", AuthController, :callback
-   end
 
   # Other scopes may use custom stacks.
   # scope "/api", NewsbeeWeb do
   #   pipe_through :api
   # end
 end
+

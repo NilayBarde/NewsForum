@@ -8,7 +8,7 @@ defmodule NewsbeeWeb.Plugs.RequireAuth do
     token = List.first(get_req_header(conn, "x-auth"))
     case Phoenix.Token.verify(NewsbeeWeb.Endpoint, "session", token, max_age: 86400) do
       {:ok, user_id} ->
-        assign(conn, :current_user, Newsbee.Users.get_user!(user_id))
+        assign(conn, :user_id, user_id)
       {:error, err} ->
         conn
         |> put_resp_header("content-type", "application/json; charset=UTF-8")
@@ -17,3 +17,4 @@ defmodule NewsbeeWeb.Plugs.RequireAuth do
     end
   end
 end
+

@@ -12,6 +12,13 @@ defmodule Newsbee do
   key = "d3c496691bb54f3b86ccb6f379d0bc9e"
   "#{web_api}&apiKey=#{key}"
   end
+
+    def getnews_bycategory(tag) do
+  web_api = "https://newsapi.org/v2/top-headlines?country=us"
+  key = "d3c496691bb54f3b86ccb6f379d0bc9e"
+  tag = tag
+  "#{web_api}&category=#{tag}&apiKey=#{key}"
+  end
   
 
     def fetch_articles() do
@@ -22,9 +29,6 @@ defmodule Newsbee do
   end
 
 
-  def column_names() do 
-  Enum.join ~w(Title Author Description Url UrlToImage)
-  end
 
   def get_articles() do
 
@@ -33,6 +37,52 @@ defmodule Newsbee do
   body["articles"]
    
   end
+
+
+  def get_sport_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("sport")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+  def get_business_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("business")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+  def get_health_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("health")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+
+
+  def get_entertainment_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("entertainment")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+
+  def get_technology_articles() do
+
+  resp = HTTPoison.get! getnews_bycategory("technology")
+  body = Poison.decode!(resp.body)
+  body["articles"]
+   
+  end
+
+  
 
   def get_author() do
 
@@ -84,38 +134,39 @@ end
   
 
   def get_author2() do
-    Enum.map(get_articles, fn (x) -> x["author"] end)
+    Enum.map(get_articles(), fn (x) -> x["author"] end)
   end
 
  
 
   def get_title() do
 
-Enum.map(get_articles, fn (x) -> x["title"] end)  
+Enum.map(get_articles(), fn (x) -> x["title"] end)  
 end
 
 
 def get_description() do
 
-Enum.map(get_articles, fn (x) -> x["description"] end)  
+Enum.map(get_articles(), fn (x) -> x["description"] end)  
 end
 
 def get_url() do
 
-Enum.map(get_articles, fn (x) -> x["url"] end)  
+Enum.map(get_articles(), fn (x) -> x["url"] end)  
 end
 
 
 def get_urlToImage() do
 
-Enum.map(get_articles, fn (x) -> x["urlToImage"] end)  
+Enum.map(get_articles(), fn (x) -> x["urlToImage"] end)  
 end
 
 def get_source() do
 
-Enum.map(get_articles, fn (x) -> x["source"] end)  
+Enum.map(get_articles(), fn (x) -> x["source"] end)  
 end
 
 
 end
+
 
