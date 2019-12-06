@@ -28,6 +28,7 @@ renderComments(comments) {
             
             return (
                 <tr key={comment.id}>
+                    <td>{comment.id}</td>
                     <td>{comment.content}</td>
                 </tr>
             )
@@ -55,7 +56,7 @@ render() {
                 <thead>
                     <tr>
 		        <th>User</th>
-                        <th>Comment</th>
+                        <th>Comments</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,3 +70,4 @@ render() {
         }
     }
 }
+

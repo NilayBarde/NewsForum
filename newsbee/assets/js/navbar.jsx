@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom'
 import store from './store'
 export default function Navigation(props) {
     return(
-        <Navbar bg="primary" variant="dark" expand="lg">
+        <Navbar bg="light" variant="light" expand="lg">
             <Navbar.Brand href="/">Newsbee</Navbar.Brand>
             <Navbar.Toggle className="ml-auto" aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
@@ -33,7 +33,7 @@ let Session = connect(({ session }) => ({ session }))(({ session, dispatch }) =>
         return (
             <Nav className="ml-auto">
           <Nav.Item>
-          <p className="text-light py-2">User: {session.user_name}</p>
+          <p className="text-dark py-2">User: {session.user_name}</p>
         </Nav.Item>
 	<Nav.Item>
            <Nav.Link href="/news">News</Nav.Link>
@@ -62,3 +62,4 @@ let Session = connect(({ session }) => ({ session }))(({ session, dispatch }) =>
         )
     }
 })
+

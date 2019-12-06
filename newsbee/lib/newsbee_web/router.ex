@@ -34,7 +34,7 @@ scope "/", NewsbeeWeb do
   get "/health", NewsController, :health
   get "/business", NewsController, :business
   get "/entertainment", NewsController, :entertainment
-  get "/technology", NewsController, :entertainment
+  get "/technology", NewsController, :technology
 end
 
 scope "/topics", NewsbeeWeb do

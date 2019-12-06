@@ -38,19 +38,30 @@ class Login extends React.Component {
             <Container>
                 <h1 align="center">Login</h1>
                 { error_msg }
-                <Form.Group controlId="email">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" 
-                        onChange={(ev) => {this.changed({email: ev.target.value})}}
+                <form>
+                <div className="form-label-group">
+                
+                
+                    <input type="email"id="inputEmail" className="form-control" placeholder="Email address" required autoFocus 
+                    onChange={(ev) => {this.changed({email: ev.target.value})}}
                     />
-                </Form.Group>
-                <Form.Group controlId="password">
+                
+                </div>
+
+
+                <div className="form-label-group">
+                  <input type="password" id="inputPassword" className="form-control" placeholder="Password" required 
+                  onChange={(ev) => {this.changed({password: ev.target.value})}}/>
+                  
+                </div>
+                {/* <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" 
                         onChange={(ev) => {this.changed({password: ev.target.value})}}
                     />
-                </Form.Group>
+                </Form.Group> */}
                 <Button variant="primary" onClick={() => {submit_login(this)}}>Login</Button>
+                </form>
             </Container>
         )
     }
