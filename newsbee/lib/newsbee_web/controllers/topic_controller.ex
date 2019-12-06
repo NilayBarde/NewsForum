@@ -13,17 +13,15 @@ defmodule NewsbeeWeb.TopicController do
     render(conn, "index.html", topics: topics)
   end
 
-  def new(conn, url) do
+  def new(conn, params) do
     # IO.inspect(conn)
     IO.inspect("-------------")
-    IO.inspect(url)
+    IO.inspect(params)
     
-    
-    conn = assign(conn, :news_url, url)
-    IO.inspect(conn)
-    changeset = Topics.change_topic(%Topic{})
-    # IO.inspect(changeset)
-    render(conn, "new.html", changeset: changeset)
+    # topic_params = %Topic{news_url: url[:news_url]}
+    # IO.inspect(topic_params)
+    changeset = Topic.changeset(%Topic{}, params)
+    render conn, "new.html",  topic_params: params, changeset: changeset
   end
 
   def create(conn, params) do
@@ -31,10 +29,21 @@ defmodule NewsbeeWeb.TopicController do
     IO.inspect("+++++++++++++++")
     IO.inspect(conn)
     IO.inspect("+++++++++++++++inspect params")
+    %{"topic_params" => topic_params_map} = params
+    %{"topic" => title_map} = params
 
-    IO.inspect(params)
-    topic_params = %{:title => params[:topic][:title], :news_url => conn.assigns.url}
-    # %{"topic" => topic_params} = params
+
+    %{"news_url" => news_url_to_get} = topic_params_map
+    %{"img_url" => img_url_to_get} = topic_params_map
+    %{"news_title" => news_title_to_get} = topic_params_map
+    %{"title" => title_to_get} = title_map
+
+    
+    topic_params = %{title: title_to_get, news_url: news_url_to_get,
+                    img_url: img_url_to_get, news_title: news_title_to_get}
+    
+    IO.inspect(topic_params)
+    
     case Topics.create_topic(topic_params) do
       {:ok, topic} ->
         conn
