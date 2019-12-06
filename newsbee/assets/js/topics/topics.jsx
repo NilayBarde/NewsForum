@@ -40,9 +40,39 @@ const topicList = connect(({ topics }) => ({ topics }))(({ topics }) => {
                 </tbody>
             </table>
         </div>
+        <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
         </body>
     )
 })
 
 export default topicList
+
 

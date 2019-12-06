@@ -42,6 +42,7 @@ class NewTopic extends React.Component {
        }
         this.changed({user_id: store.getState().session.user_id})
         return(
+            <body class = "topic_bg">
             <Container>
                 <h1 align="center">New Topic</h1>
                 { error_msg }
@@ -53,6 +54,62 @@ class NewTopic extends React.Component {
                 </Form.Group>
                 <Button variant="primary" onClick={() => {add_topic(this)}}>Create</Button>
             </Container>
+            <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+            </body>
         )
     }
 
@@ -63,4 +120,5 @@ function state2props(state) {
 }
 
 export default connect(state2props)(NewTopic);
+
 

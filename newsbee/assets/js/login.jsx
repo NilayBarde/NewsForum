@@ -35,9 +35,26 @@ class Login extends React.Component {
             error_msg = <Alert variant="danger">{ errors }</Alert>
         }
         return(
+            <body class = "login_bg">
             <Container>
+            <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
                 <h1 align="center">Login</h1>
                 { error_msg }
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
                 <form>
                 <div className="form-label-group">
                 
@@ -45,14 +62,26 @@ class Login extends React.Component {
                     <input type="email"id="inputEmail" className="form-control" placeholder="Email address" required autoFocus 
                     onChange={(ev) => {this.changed({email: ev.target.value})}}
                     />
-                
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+              
                 </div>
 
 
                 <div className="form-label-group">
                   <input type="password" id="inputPassword" className="form-control" placeholder="Password" required 
                   onChange={(ev) => {this.changed({password: ev.target.value})}}/>
-                  
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                 
                 </div>
                 {/* <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
@@ -61,8 +90,35 @@ class Login extends React.Component {
                     />
                 </Form.Group> */}
                 <Button variant="primary" onClick={() => {submit_login(this)}}>Login</Button>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                
                 </form>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+             
+                
+
             </Container>
+            </body>
         )
     }
 
@@ -73,3 +129,4 @@ function state2props(state) {
 }
 
 export default connect(state2props)(Login);
+

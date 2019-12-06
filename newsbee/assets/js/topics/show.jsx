@@ -37,9 +37,11 @@ renderComments(comments) {
 
 	
 render() {
+    
         if(this.state.topic) {
 	console.log(this.state.topic)
             return(
+                <body class = "topic_bg">
                 <Container>
                     <h1>Topic</h1>
                     <h6>Title: {this.state.topic.title}</h6>
@@ -64,10 +66,68 @@ render() {
                 </tbody>
             </table>
                 </Container>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br><br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br>
+                <br>
+                </br> 
+                <br>
+                </br>
+                <br>
+                </br>
+                
+                </body>
             )
         } else {
             return null
         }
     }
 }
+
 
