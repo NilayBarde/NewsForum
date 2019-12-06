@@ -26,13 +26,9 @@ pipeline :browser do
 
   end
 
-<<<<<<< HEAD
   scope "/", NewsbeeWeb do
     pipe_through :browser
-=======
-scope "/", NewsbeeWeb do
-  pipe_through :browser
->>>>>>> song1205
+
 
   get "/", PageController, :index
   get "/sports", NewsController, :sports

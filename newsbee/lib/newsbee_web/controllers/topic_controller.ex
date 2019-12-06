@@ -1,7 +1,6 @@
 defmodule NewsbeeWeb.TopicController do
   use NewsbeeWeb, :controller
-<<<<<<< HEAD
-  
+
   alias Newsbee.Topics
   alias Newsbee.Topics.Topic
 
@@ -53,26 +52,6 @@ defmodule NewsbeeWeb.TopicController do
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
-=======
-
-  plug NewsbeeWeb.Plugs.RequireAuth when action in [:show, :create, :delete]
-  alias Newsbee.Topics
-  alias Newsbee.Topics.Topic
-
-  action_fallback NewsbeeWeb.FallbackController
-
-  def index(conn, _params) do
-    topics = Topics.list_topics()
-    render(conn, "index.json", topics: topics)
-  end
-
-  def create(conn, %{"topic" => topic_params}) do
-    user = Newsbee.Users.get_user!(topic_params["user_id"])
-    with {:ok, %Topic{} = topic} <- Topics.create_topic(topic_params) do
-      conn
-      |> put_status(:created)
-      |> render("show.json", topic: Map.put(topic, :user, user))
->>>>>>> song1205
     end
   end
 
